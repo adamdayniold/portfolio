@@ -3,12 +3,14 @@ table, th, td {
   border: 1px solid #ddd;
   border-collapse: collapse;
   padding: 10px;
+  overflow-y: auto;
+  overflow-x: auto;
+  height: 100%;
 };
 
 html {
-  width: 100%;
+  overflow: scroll;
   height: 100%;
-  background-color: red;
 }
 
 .body-section {
@@ -34,4 +36,10 @@ html {
   color: white;
   background-color: black;
   border: 1px solid white
+}
+
+@media screen and (max-width: 414px) {
+  .table-position {
+    position: relative;
+  }
 }
