@@ -1,5 +1,9 @@
 # angular cache
 .angular/cache/
+angular/cache/
+
+# vscode
+.vscode/
 
 # Logs
 logs
