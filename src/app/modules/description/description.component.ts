@@ -17,11 +17,14 @@ export class DescriptionComponent implements OnInit {
   title = 'adam_portfolio';
   introduction: boolean = true;
   fadetrans: boolean = false;
+  timelineOccur: boolean = false;
 
   ngOnInit() {
-    setTimeout(() => {
-      this.introduction = false;
-    }, 1000)
+  }
+
+  intro() {
+    this.introduction = false;
+    this.timelineOccur = true;
   }
 
   fadeAnim() {

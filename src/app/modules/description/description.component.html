@@ -1,96 +1,163 @@
-<div *ngIf="introduction" class="introduction">
-  <div class="background-details">
-    .
+<body>
+  <div *ngIf="introduction" class="introduction">
+    <div class="background-details">
+      <div class="introductory">
+          Hi, my name is Adam Dayniold.<br>
+          I will show you how I ended up in my current state of work.<br>
+        <div class="button-introduction">
+          <button class="glow-on-hover" (click)="intro()" type="button">Take me there!</button>
+        </div>
+          (Portfolio is currently undergoing design maintenance)
+        </div>
+    </div>
   </div>
-</div>
-<div *ngIf="!introduction" @fadeIn class="non-introduction">
-  <div class="header-name">
-    Hey I am Adam Im a software developer specialised in front-end. If designer can sketch it, I can build it (with enough time and resources available)
-    (Portfolio is currently undergoing design maintenance)
+  <div *ngIf="!introduction" @fadeIn class="non-introduction">
+    <div *ngIf="timelineOccur" @fadeIn class="timeline">
+      <div class="container left">
+        <div class="content">
+          <h2>December 2021 - Present</h2>
+          <p>System Engineer at Tata Consultanty Services</p>
+          <ul>
+            <li>Developed customized web application according to client’s needs.</li>
+            <li>Changing existing web application flow to better suit business requirements.</li>
+            <li>Maintained code reusability for future maintenance and provided better security supportbased on security team testing and recommendation.</li>
+        </ul>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h2>February 2020 - December 2021</h2>
+          <p>Software Engineer at TalentCloud.ai</p>
+          <ul>
+            <li>Fixed bugs and errors to ensure continuity of system.</li>
+            <li>Developed new modules and complex components (Learning and E-Travel) as it is highly requested by multiple clients.</li>
+            <li>Compiled, merged and deployed codes from staging to live using Git.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h2>2017 - 2020</h2>
+          <p>Graduated National University of Malaysia (UKM)</p>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h2>August 2019 - December 2019 (Intenship before graduating UKM)</h2>
+          <p>Full Stack Web Developer Intern at WorldQuest international</p>
+          <ul>
+            <li>Maintained current web application.</li>
+            <li>Developed new components for newly designed interface.</li>
+            <li>Learned how to read old codes and convert it to newer and maintainable codes.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h2>2015 - 2017</h2>
+          <p>Graduated Ungku Omar Polytechnic</p>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h2>November 2016 - April 2017 (Intenship before graduating Ungku Omar Polytechnic)</h2>
+          <p>Front end Software Developer Intern at Tripviss Technology</p>
+          <ul>
+            <li>Maintained current web application and developed new reusable components.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h2>2013</h2>
+          <p>Finished Sekolah Menengah Kebangsaan Sri Andalas</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- <div class="table-position">
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>December 2021 - Present</td>
+          <td>
+            System Engineer at Tata Consultanty Services
+            <div>
+              <ul>
+                  <li>Developed customized web application according to client’s needs.</li>
+                  <li>Changing existing web application flow to better suit business requirements.</li>
+                  <li>Maintained code reusability for future maintenance and provided better security supportbased on security team testing and recommendation.</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+  
+        <tr>
+          <td>February 2020 - December 2021</td>
+          <td>
+            Software Engineer at TalentCloud.ai
+            <div>
+              <ul>
+                <li>Fixed bugs and errors to ensure continuity of system.</li>
+                <li>Developed new modules and complex components (Learning and E-Travel) as it is highly requested by multiple clients.</li>
+                <li>Compiled, merged and deployed codes from staging to live using Git.</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div>August 2019 - December 2019</div>
+            <div>(Intenship before graduating UKM)</div>
+          </td>
+          <td>
+            Full Stack Web Developer Intern at WorldQuest international
+            <div>
+              <ul>
+                <li>Maintained current web application.</li>
+                <li>Developed new components for newly designed interface.</li>
+                <li>Learned how to read old codes and convert it to newer and maintainable codes.</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>2017 - 2020</td>
+          <td>
+            Graduated National University of Malaysia (UKM)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div>November 2016 - April 2017</div>
+            <div>(Intenship before graduating Ungku Omar Polytechnic)</div>
+          </td>
+          <td>
+            Front end Software Developer Intern at Tripviss technology sdn bdn
+            <div>
+              <ul>
+                <li>Maintained current web application and developed new reusable components.</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>2015 - 2017</td>
+          <td>
+            Finished Ungku Omar Polytechnic
+          </td>
+        </tr>
+        <tr>
+          <td>2013</td>
+          <td>
+            Finished Sekolah Menengah Kebangsaan Sri Andalas
+          </td>
+        </tr>
+      </table>
+    </div> -->
   </div>
-
-  <div class="table-position">
-    <table>
-      <tr>
-        <th>Date</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td>December 2021 - Present</td>
-        <td>
-          System Engineer at Tata Consultanty Services
-          <div>
-            <ul>
-                <li>Developed customized web application according to client’s needs.</li>
-                <li>Changing existing web application flow to better suit business requirements.</li>
-                <li>Maintained code reusability for future maintenance and provided better security supportbased on security team testing and recommendation.</li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td>February 2020 - December 2021</td>
-        <td>
-          Software Engineer at TalentCloud.ai
-          <div>
-            <ul>
-              <li>Fixed bugs and errors to ensure continuity of system.</li>
-              <li>Developed new modules and complex components (Learning and E-Travel) as it is highly requested by multiple clients.</li>
-              <li>Compiled, merged and deployed codes from staging to live using Git.</li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div>August 2019 - December 2019</div>
-          <div>(Intenship before graduating UKM)</div>
-        </td>
-        <td>
-          Full Stack Web Developer Intern at WorldQuest international
-          <div>
-            <ul>
-              <li>Maintained current web application.</li>
-              <li>Developed new components for newly designed interface.</li>
-              <li>Learned how to read old codes and convert it to newer and maintainable codes.</li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>2017 - 2020</td>
-        <td>
-          Graduated National University of Malaysia (UKM)
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div>November 2016 - April 2017</div>
-          <div>(Intenship before graduating Ungku Omar Polytechnic)</div>
-        </td>
-        <td>
-          Front end Software Developer Intern at Tripviss technology sdn bdn
-          <div>
-            <ul>
-              <li>Maintained current web application and developed new reusable components.</li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>2015 - 2017</td>
-        <td>
-          Finished Ungku Omar Polytechnic
-        </td>
-      </tr>
-      <tr>
-        <td>2013</td>
-        <td>
-          Finished Sekolah Menengah Kebangsaan Sri Andalas
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
+</body>
 
