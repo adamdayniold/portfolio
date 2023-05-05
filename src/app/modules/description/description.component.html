@@ -1,26 +1,30 @@
 <body>
   <div *ngIf="introduction" class="introduction">
     <div class="background-details">
-      <div class="introductory">
+      <div [@hinge]="hinge" class="introductory">
           Hi, my name is Adam Dayniold.<br>
           I will show you how I ended up in my current state of work.<br>
         <div class="button-introduction">
           <button class="glow-on-hover" (click)="intro()" type="button">Take me there!</button>
         </div>
           (Portfolio is currently undergoing design maintenance)
-        </div>
+      </div>
     </div>
   </div>
-  <div *ngIf="!introduction" @fadeIn class="non-introduction">
-    <div *ngIf="timelineOccur" @fadeIn class="timeline">
+  <div *ngIf="!introduction" [@fadeIn]="!introduction" class="non-introduction">
+    <div *ngIf="timelineOccur" [@fadeIn]="timelineOccur" class="timeline">
       <div class="container left">
         <div class="content">
           <h2>December 2021 - Present</h2>
           <p>System Engineer at Tata Consultanty Services</p>
           <ul>
-            <li>Developed customized web application according to client’s needs.</li>
+            <li>Involved in the development of an Enterprise Portal for a major Malaysian telecommunications provider.</li>
+            <li>Implemented functionalities and developed multiple user interface components based on the client's user-stories and requirements.</li>
             <li>Changing existing web application flow to better suit business requirements.</li>
-            <li>Maintained code reusability for future maintenance and provided better security supportbased on security team testing and recommendation.</li>
+            <li>Maintained code reusability for future maintenance and provided better security support based on security team testing and recommendation.</li>
+            <li>Dealing with multiple teams and micro services that are built for the systems.</li>
+            <li>Provide on-site support to clients in case of error occurred during SIT and PVT testing.</li>
+            <li>Involved in daily scrum meeting with clients and team to update the status about current tasks.</li>
         </ul>
         </div>
       </div>
@@ -32,6 +36,7 @@
             <li>Fixed bugs and errors to ensure continuity of system.</li>
             <li>Developed new modules and complex components (Learning and E-Travel) as it is highly requested by multiple clients.</li>
             <li>Compiled, merged and deployed codes from staging to live using Git.</li>
+            <li>Involved in team weekly meeting to update everyone about status of current tasks.</li>
           </ul>
         </div>
       </div>
@@ -49,6 +54,7 @@
             <li>Maintained current web application.</li>
             <li>Developed new components for newly designed interface.</li>
             <li>Learned how to read old codes and convert it to newer and maintainable codes.</li>
+            <li>Wrote functional code while using best practices to ensure readability for future maintenance.</li>
           </ul>
         </div>
       </div>
@@ -74,90 +80,6 @@
         </div>
       </div>
     </div>
-  
-    <!-- <div class="table-position">
-      <table>
-        <tr>
-          <th>Date</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td>December 2021 - Present</td>
-          <td>
-            System Engineer at Tata Consultanty Services
-            <div>
-              <ul>
-                  <li>Developed customized web application according to client’s needs.</li>
-                  <li>Changing existing web application flow to better suit business requirements.</li>
-                  <li>Maintained code reusability for future maintenance and provided better security supportbased on security team testing and recommendation.</li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-  
-        <tr>
-          <td>February 2020 - December 2021</td>
-          <td>
-            Software Engineer at TalentCloud.ai
-            <div>
-              <ul>
-                <li>Fixed bugs and errors to ensure continuity of system.</li>
-                <li>Developed new modules and complex components (Learning and E-Travel) as it is highly requested by multiple clients.</li>
-                <li>Compiled, merged and deployed codes from staging to live using Git.</li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div>August 2019 - December 2019</div>
-            <div>(Intenship before graduating UKM)</div>
-          </td>
-          <td>
-            Full Stack Web Developer Intern at WorldQuest international
-            <div>
-              <ul>
-                <li>Maintained current web application.</li>
-                <li>Developed new components for newly designed interface.</li>
-                <li>Learned how to read old codes and convert it to newer and maintainable codes.</li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>2017 - 2020</td>
-          <td>
-            Graduated National University of Malaysia (UKM)
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div>November 2016 - April 2017</div>
-            <div>(Intenship before graduating Ungku Omar Polytechnic)</div>
-          </td>
-          <td>
-            Front end Software Developer Intern at Tripviss technology sdn bdn
-            <div>
-              <ul>
-                <li>Maintained current web application and developed new reusable components.</li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>2015 - 2017</td>
-          <td>
-            Finished Ungku Omar Polytechnic
-          </td>
-        </tr>
-        <tr>
-          <td>2013</td>
-          <td>
-            Finished Sekolah Menengah Kebangsaan Sri Andalas
-          </td>
-        </tr>
-      </table>
-    </div> -->
   </div>
 </body>
 
