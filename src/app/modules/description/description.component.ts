@@ -1,4 +1,3 @@
-import { trigger, state, style, transition, animate } from '@angular/animations';
 import { fadeInAnimation, hingeAnimation, lightSpeedOutAnimation, lightSpeedInAnimation, bounceInAnimation, bounceOutAnimation, bounceOutOnLeaveAnimation } from 'angular-animations';
 import { Component, OnInit } from '@angular/core';
 
@@ -38,7 +37,7 @@ export class DescriptionComponent implements OnInit {
   lightSpeedInInformation() {
     setTimeout(() => {
       this.lightSpeedIn = true;
-    }, 1000)
+    }, 200)
   }
 
 }
