@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy_github": "ng deploy --base-href=https://adamdayniold.github.io/portfolio/"
   },
   "private": true,
   "dependencies": {
