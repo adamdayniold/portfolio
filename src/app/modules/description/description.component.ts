@@ -24,4 +24,5 @@ export class DescriptionComponent implements OnInit {
       this.timelineOccur = true;
     }, 2000);
   }
+
 }
