@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: npm run build -- --configuration production --base-href /adam_portfolio/
+        run: npm run build -- --configuration production --base-href /portfolio/
 
       - name: Deploy dist to build branch
         uses: peaceiris/actions-gh-pages@v4
