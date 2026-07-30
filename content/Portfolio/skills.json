@@ -1,0 +1,21 @@
+{
+  "development": [
+    "Perl",
+    "Angular",
+    "JavaScript",
+    "User Interface Development",
+    "System Enhancement",
+    "Python Scripting"
+  ],
+  "qualityAssurance": [
+    "Manual Testing",
+    "Unit Testing",
+    "Test Planning",
+    "Defect Reporting"
+  ],
+  "delivery": [
+    "Server Operations",
+    "Technical Documentation",
+    "Agile Scrum"
+  ]
+}

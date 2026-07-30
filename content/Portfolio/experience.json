@@ -1,0 +1,121 @@
+[
+  {
+    "role": "Technical Lead",
+    "company": "HCL Technologies Limited",
+    "period": "December 2024 - Present",
+    "responsibilities": [
+      "Upgraded internal systems for a distinguished telecommunications company in Japan.",
+      "Developed and maintained Perl code supporting internal systems and ongoing enhancements.",
+      "Developed and maintained Angular user-interface features using JavaScript.",
+      "Evaluated and troubleshot software errors to resolve issues and improve system functionality.",
+      "Created Python scripts to automate server operations, improving efficiency and reducing manual work.",
+      "Produced test plans, test results, summaries, and defect reports in the required format.",
+      "Performed manual and unit testing to identify software defects.",
+      "Participated in daily Scrum meetings to share progress and discuss ongoing work."
+    ],
+    "techStack": [
+      "Perl",
+      "Python",
+      "Angular",
+      "JavaScript",
+      "Server Operations",
+      "Manual Testing",
+      "Unit Testing",
+      "Agile Scrum"
+    ]
+  },
+  {
+    "role": "Technical Consultant",
+    "company": "Hewlett Packard Enterprise",
+    "period": "September 2023 - December 2024",
+    "responsibilities": [
+      "Enhanced internal systems for a leading Japanese telecommunications company.",
+      "Developed and maintained Perl code for the internal system.",
+      "Built user-interface components and features according to client design documentation.",
+      "Worked with Angular and JavaScript for user-interface development.",
+      "Developed Python scripts to automate server functions, improving efficiency and reducing manual workload.",
+      "Prepared test plans, test outcomes, summaries, and defect reports.",
+      "Conducted manual and unit testing to identify software issues.",
+      "Attended daily Scrum meetings to communicate task status and ongoing progress."
+    ],
+    "techStack": [
+      "Perl",
+      "Python",
+      "Angular",
+      "JavaScript",
+      "UI Development",
+      "Server Automation",
+      "Manual Testing",
+      "Unit Testing",
+      "Agile Scrum"
+    ]
+  },
+  {
+    "role": "System Engineer",
+    "company": "Tata Consultancy Services",
+    "period": "December 2021 - September 2023",
+    "location": "Kuala Lumpur",
+    "responsibilities": [
+      "Contributed to an enterprise portal for a major Malaysian telecommunications provider.",
+      "Implemented features and user-interface components from client user stories and requirements.",
+      "Maintained reusable code for future enhancements and incorporated security-team recommendations."
+    ],
+    "techStack": [
+      "Angular",
+      "Node.js",
+      "MySQL",
+      "Azure Active Directory",
+      "GitHub"
+    ]
+  },
+  {
+    "role": "Software Engineer",
+    "company": "TalentCloud.ai",
+    "period": "February 2020 - December 2021",
+    "location": "Kuala Lumpur",
+    "responsibilities": [
+      "Resolved bugs and errors to help maintain system continuity.",
+      "Developed new modules and complex Learning and E-Travel components requested by multiple clients.",
+      "Compiled, merged, and deployed code from staging to production using Git."
+    ],
+    "techStack": [
+      "Nuxt.js",
+      "Vue.js",
+      "JavaScript",
+      "Bitbucket",
+      "Git"
+    ]
+  },
+  {
+    "role": "Full Stack Web Developer Intern",
+    "company": "WorldQuest International",
+    "period": "August 2019 - December 2019",
+    "location": "Kuala Lumpur",
+    "responsibilities": [
+      "Maintained the existing web application.",
+      "Developed new components for a redesigned interface.",
+      "Modernized legacy code to make it easier to maintain."
+    ],
+    "techStack": [
+      "React.js",
+      "React Native",
+      "JavaScript",
+      "GitHub"
+    ]
+  },
+  {
+    "role": "Front End Software Developer Intern",
+    "company": "Tripviss Technology",
+    "period": "November 2016 - April 2017",
+    "location": "Kuala Lumpur",
+    "responsibilities": [
+      "Maintained existing web applications and developed reusable components."
+    ],
+    "techStack": [
+      "React.js",
+      "JavaScript",
+      "GitLab",
+      "Linux"
+    ]
+  }
+]
