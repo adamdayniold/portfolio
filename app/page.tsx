@@ -13,10 +13,6 @@ import Sidebar from "@/app/components/Sidebar";
 import { FileIcon } from "@/app/components/FileIcon";
 import { getLanguage, getLanguageLabel } from "@/lib/fileLanguages";
 import type { FileItem } from "@/lib/getFiles";
-
-const res = await fetch(
-  `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/api/files`
-);
 export default function App() {
   const [showTerminal, setShowTerminal] = useState(false);
   const [showPalette, setShowPalette] = useState(false);
@@ -65,7 +61,9 @@ export default function App() {
 
   useEffect(() => {
     async function loadFiles() {
-      const res = await fetch("/api/files");
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/api/files`
+      );
       const data = await res.json();
       setFiles(data);
       const firstFile = findFirstFile(data);
