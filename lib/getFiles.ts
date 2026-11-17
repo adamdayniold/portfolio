@@ -10,9 +10,6 @@ export interface FileItem {
   children?: FileItem[];
 }
 
-// Keep employer project details private until there is a personal project to show.
-const HIDDEN_PORTFOLIO_FILES = new Set(["Portfolio/project.ts"]);
-
 function detectLanguage(fileName: string): string {
   const ext = fileName.split(".").pop() || "";
 
@@ -27,12 +24,7 @@ function detectLanguage(fileName: string): string {
 function readDirectory(dirPath: string, basePath = ""): FileItem[] {
   const entries = fs.readdirSync(dirPath);
 
-  return entries
-    .filter((entry) => {
-      const relativePath = path.join(basePath, entry);
-      return !HIDDEN_PORTFOLIO_FILES.has(relativePath);
-    })
-    .map((entry) => {
+  return entries.map((entry) => {
     const fullPath = path.join(dirPath, entry);
     const relativePath = path.join(basePath, entry);
     const stats = fs.statSync(fullPath);

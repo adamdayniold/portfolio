@@ -26,9 +26,6 @@ export default function CodeBlock({
       // Apply theme
       monaco.editor.setTheme("monokai-dark");
 
-      // Optional: focus editor on mount
-      editorInstance.focus();
-      
       // Cursor tracking
       editorInstance.onDidChangeCursorPosition((e) => {
         onCursorChange?.(e.position.lineNumber, e.position.column);
@@ -74,7 +71,11 @@ export default function CodeBlock({
           minimap: { enabled: false },
           renderLineHighlight: "all",
           renderWhitespace: "none",
-          wordWrap: "off",
+          wordWrap: "on",
+          scrollbar: {
+            verticalScrollbarSize: 8,
+            horizontalScrollbarSize: 8,
+          },
 
           // VS Code feel
           padding: { top: 0, bottom: 0 },

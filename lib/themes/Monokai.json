@@ -141,6 +141,9 @@
     "editor.selectionBackground": "#49483E",
     "editor.lineHighlightBackground": "#3E3D32",
     "editorCursor.foreground": "#F8F8F0",
+    "scrollbarSlider.background": "#3E3D32",
+    "scrollbarSlider.hoverBackground": "#75715E",
+    "scrollbarSlider.activeBackground": "#75715E",
     "editorWhitespace.foreground": "#3B3A32",
     "editorIndentGuide.activeBackground": "#9D550FB0",
     "editor.selectionHighlightBorder": "#222218"

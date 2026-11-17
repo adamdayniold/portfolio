@@ -9,6 +9,7 @@ export type ExperienceItem = {
   location?: string;
   responsibilities: string[];
   techStack?: string[];
+  summary?: string;
 };
 
 interface Props {
@@ -20,44 +21,43 @@ export default function ExperienceList({ data }: Props) {
 
   return (
     <div className="experience-container">
+      <h1 className="page-title">Experience</h1>
+
       {data.map((exp, index) => {
         const isOpen = openIndex === index;
+        const isCurrent = exp.period.includes("Present");
 
         return (
-          <div key={index} className="experience-block">
-            {/* Header (clickable like folder) */}
-            <div
+          <div
+            key={index}
+            className={`experience-block ${isCurrent ? "current" : ""}`}
+          >
+            <button
+              type="button"
               className="experience-header"
-              onClick={() =>
-                setOpenIndex(isOpen ? null : index)
-              }
+              aria-expanded={isOpen}
+              onClick={() => setOpenIndex(isOpen ? null : index)}
             >
-              <span className="arrow">
-                {isOpen ? "▾" : "▸"}
-              </span>
-
-              <span className="role">{exp.role}</span>
-
-              <span className="company">
-                {" "} @ {exp.company}
-              </span>
-            </div>
-
-            {/* Content */}
-            <div
-              className={`experience-content ${
-                isOpen ? "open" : ""
-              }`}
-            >
-              <div className="meta">
+              <span className="meta">
                 {exp.period}
                 {exp.location && ` • ${exp.location}`}
-              </div>
+              </span>
+              <span className="headline">
+                <span className="role">{exp.role}</span>
+                <span className="company"> · {exp.company}</span>
+              </span>
+              <span className="arrow" aria-hidden="true">
+                {isOpen ? "▾" : "▸"}
+              </span>
+            </button>
+
+            <div className={`experience-content ${isOpen ? "open" : ""}`}>
+              {exp.summary && <p className="summary">{exp.summary}</p>}
 
               <ul className="responsibilities">
                 {exp.responsibilities.map((item, i) => (
                   <li key={i}>
-                    <span className="comment">//</span> {item}
+                    <span className="comment">{"//"}</span> {item}
                   </li>
                 ))}
               </ul>

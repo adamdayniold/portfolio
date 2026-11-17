@@ -20,26 +20,33 @@ export default function CommandPalette({
   isOpen,
   onClose
 }: Props) {
-  const [visible, setVisible] = useState(isOpen);
   const [closing, setClosing] = useState(false);
+  const [prevOpen, setPrevOpen] = useState(isOpen);
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(0);
 
-  // Control mount visibility
-  useEffect(() => {
-    if (isOpen) {
-      setVisible(true);
-      setClosing(false);
-    } else if (visible) {
-      setClosing(true);
-      const timeout = setTimeout(() => {
-        setVisible(false);
-        setClosing(false);
-      }, 140);
+  const visible = isOpen || closing;
 
-      return () => clearTimeout(timeout);
-    }
-  }, [isOpen, visible]);
+  const filtered = commands.filter((cmd) =>
+    cmd.label.toLowerCase().includes(query.toLowerCase())
+  );
+
+  // Start or cancel the closing animation when isOpen changes
+  if (isOpen !== prevOpen) {
+    setPrevOpen(isOpen);
+    setClosing(!isOpen);
+  }
+
+  // Finish closing after the animation, then reset the search
+  useEffect(() => {
+    if (!closing) return;
+    const timeout = setTimeout(() => {
+      setClosing(false);
+      setQuery("");
+      setSelected(0);
+    }, 140);
+    return () => clearTimeout(timeout);
+  }, [closing]);
 
   // Keyboard handler
   useEffect(() => {
@@ -49,33 +56,29 @@ export default function CommandPalette({
       if (e.key === "Escape") onClose();
 
       if (e.key === "ArrowDown") {
+        e.preventDefault();
         setSelected((prev) =>
-          commands.length === 0
-            ? 0
-            : (prev + 1) % commands.length
+          filtered.length === 0 ? 0 : (prev + 1) % filtered.length
         );
       }
 
       if (e.key === "ArrowUp") {
-        setSelected((prev) =>
-          prev === 0 ? commands.length - 1 : prev - 1
+        e.preventDefault();
+        setSelected((prev) => filtered.length === 0 ? 0 : (prev - 1 + filtered.length) % filtered.length
         );
       }
 
       if (e.key === "Enter") {
-        commands[selected]?.action();
+        const cmd = filtered[selected];
+        if (!cmd) return;
+        cmd.action();
         onClose();
       }
     }
 
     window.addEventListener("keydown", handleKey);
-    return () =>
-      window.removeEventListener("keydown", handleKey);
-  }, [visible, commands, selected, onClose]);
-
-  const filtered = commands.filter((cmd) =>
-    cmd.label.toLowerCase().includes(query.toLowerCase())
-  );
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [visible, filtered, selected, onClose]);
 
   return (
     <>
@@ -87,13 +90,21 @@ export default function CommandPalette({
           onClick={onClose}
         >
           <div
-            className={`palette ${
-              closing ? "palette-closing" : ""
-            }`}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Command palette"
+            className={`palette ${closing ? "palette-closing" : ""}`}
             onClick={(e) => e.stopPropagation()}
           >
             <input
               autoFocus
+              role="combobox"
+              aria-label="Search commands"
+              aria-expanded="true"
+              aria-controls="palette-list"
+              aria-activedescendant={
+                filtered.length ? `palette-option-${selected}` : undefined
+              }
               className="palette-input"
               placeholder="> Type a command"
               value={query}
@@ -102,10 +113,13 @@ export default function CommandPalette({
                 setSelected(0);
               }}
             />
-            <div className="palette-list">
+            <div className="palette-list" role="listbox" id="palette-list">
               {filtered.map((cmd, index) => (
                 <div
                   key={cmd.label}
+                  id={`palette-option-${index}`}
+                  role="option"
+                  aria-selected={index === selected}
                   className={`palette-item ${index === selected ? "active" : ""}`}
                   onClick={() => {
                     cmd.action();

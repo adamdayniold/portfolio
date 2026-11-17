@@ -24,7 +24,6 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #3e3d32;
-  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -33,6 +32,7 @@ body {
 
 .app {
   height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -96,12 +96,16 @@ body {
 
 .tabs {
   display: flex;
+  flex-shrink: 0;
+  overflow-x: auto;
   background-color: #1e1f1c;
   border-bottom: 1px solid #3e3d32;
 }
 
 .tab {
   display: flex;
+  flex-shrink: 0;
+  white-space: nowrap;
   align-items: center;
   gap: 6px;
   padding: 6px 10px;
@@ -233,13 +237,16 @@ body {
   font-size: inherit; /* inherit from terminal */
 }
 
+.terminal:focus {
+  outline: none;
+}
+
 .terminal::-webkit-scrollbar {
   width: 6px;
 }
 
 .terminal::-webkit-scrollbar-thumb {
   background: #444;
-  border-radius: 4px;
 }
 
 .prompt {
@@ -324,7 +331,7 @@ body {
 
 /* Palette animation */
 .palette {
-  width: 600px;
+  width: min(600px, calc(100vw - 24px));
   background: #1e1f1c;
   border-radius: 8px;
   overflow: hidden;
@@ -357,12 +364,19 @@ body {
 }
 
 @keyframes overlayFadeOut {
+  from {
+    opacity: 1
+  }
   to {
     opacity: 0;
   }
 }
 
 @keyframes paletteOut {
+  from {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
   to {
     transform: scale(0.96) translateY(-6px);
     opacity: 0;
@@ -695,25 +709,433 @@ body {
     margin-right: 8px;
   }
 
-  .sidebar-overlay {
-    display: none;
-    z-index: 150;
+  .file {
+    height: 36px;
   }
 
-  .statusbar {
-    flex-wrap: wrap;
-    height: auto;
-    padding: 4px 10px;
+  .close-btn {
+    opacity: 1;
+    width: 24px;
+    height: 24px;
   }
 
-  .status-left,
-  .status-right {
-    width: 100%;
-    justify-content: space-between;
-    white-space: normal;
-  }
-
-  .status-right .status-item:nth-child(n + 4) {
+  .ide-subtitle {
     display: none;
   }
+
+  /* Terminal and its button are desktop-only (they need a keyboard) */
+  .toggle-terminal-btn,
+  .terminal {
+    display: none;
+  }
+
+  /* Single-row status bar: branch on the left, file type on the right */
+  .status-left .status-item:not(:first-child),
+  .status-right .status-item:not(.status-lang) {
+    display: none;
+  }
+}
+
+.tab:focus-visible,
+.file:focus-visible,
+.close-btn:focus-visible {
+  outline: 1px solid #66d9ef;
+  outline-offset: -1px;
+}
+
+
+/* experience list */
+
+.arrow {
+  width: 12px;
+  color: #75715e;
+}
+
+.role {
+  color: #a6e22e;
+  font-weight: 600;
+}
+
+.company {
+  color: #66d9ef;
+}
+
+.meta {
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #75715e;
+}
+
+.responsibilities {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.responsibilities li {
+  margin: 6px 0;
+  line-height: 1.5;
+  color: #cccccc;
+}
+
+.comment {
+  margin-right: 6px;
+  color: #75715e;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  background: #3e3d32;
+  color: #e6db74;
+}
+
+.summary {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-style: italic;
+  color: #cccccc;
+}
+
+/* projectlist */
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-content: start;
+  gap: 16px;
+  max-width: 1000px;
+  padding: 24px;
+}
+
+.project-list .page-title {
+  grid-column: 1 / -1;
+  margin-bottom: 8px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background: #1e1f1c;
+  border: 1px solid #3e3d32;
+  border-radius: 8px;
+}
+
+.project-name {
+  margin: 0;
+  font-size: 16px;
+  color: #a6e22e;
+}
+
+.project-description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #cccccc;
+}
+
+.project-highlights {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+.project-highlights li::marker {
+  color: #75715e;
+}
+
+.project-link {
+  align-self: flex-start;
+  margin-top: auto;
+  font-size: 13px;
+  color: #66d9ef;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+.project-link:focus-visible {
+  outline: 1px solid #66d9ef;
+  outline-offset: 2px;
+}
+
+/* skills list */
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1000px;
+  padding: 24px;
+}
+
+.skills-list .page-title {
+  margin-bottom: 4px;
+}
+
+.skills-heading {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #75715e;
+}
+
+.skills-group .tech-stack {
+  margin-top: 8px;
+}
+
+/* preview */
+
+.preview {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* education list, contact view and markdown view */
+
+.markdown,
+.contact-view {
+  max-width: 720px;
+  padding: 24px;
+}
+
+.markdown h1,
+.contact-view h1 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  color: #f8f8f2;
+}
+
+.markdown p {
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #cccccc;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-links li {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.contact-label {
+  width: 72px;
+  color: #75715e;
+}
+
+.contact-links a {
+  color: #66d9ef;
+  text-decoration: none;
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
+.contact-links a:focus-visible {
+  outline: 1px solid #66d9ef;
+  outline-offset: 2px;
+}
+
+/* toggle */
+.view-toggle {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 4px 12px;
+  background: #272822;
+  border-bottom: 1px solid #3e3d32;
+}
+
+.view-toggle button {
+  padding: 2px 10px;
+  font-family: inherit;
+  font-size: 12px;
+  color: #75715e;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.view-toggle button:hover {
+  color: #f8f8f2;
+}
+
+.view-toggle button.active {
+  color: #f8f8f2;
+  background: #3e3d32;
+}
+
+.view-toggle button:focus-visible {
+  outline: 1px solid #66d9ef;
+  outline-offset: -1px;
+}
+
+/* shared page title */
+.page-title {
+  margin: 0 0 24px;
+  font-size: 22px;
+  color: #f8f8f2;
+}
+
+.page-title::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 3px;
+  margin-top: 8px;
+  background: #f92672;
+}
+
+/* experience timeline */
+.experience-container {
+  max-width: 1000px;
+  padding: 24px;
+  font-size: 14px;
+}
+
+.experience-block {
+  position: relative;
+  margin: 0 0 4px 6px;
+  padding-left: 24px;
+  border-left: 2px solid #3e3d32;
+}
+
+.experience-block::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: -9px;
+  width: 12px;
+  height: 12px;
+  background: #272822;
+  border: 2px solid #75715e;
+  border-radius: 50%;
+}
+
+.experience-block.current::before {
+  background: #f92672;
+  border-color: #f92672;
+}
+
+.experience-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 2px;
+  width: 100%;
+  padding: 0 8px 8px 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.experience-header .meta {
+  grid-column: 1;
+  margin: 0;
+}
+
+.experience-header .headline {
+  grid-column: 1;
+}
+
+.experience-header .arrow {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
+.experience-header:hover .role {
+  text-decoration: underline;
+}
+
+.experience-header:focus-visible {
+  outline: 1px solid #66d9ef;
+  outline-offset: 2px;
+}
+
+.experience-content {
+  display: none;
+  padding: 0 0 16px;
+}
+
+.experience-content.open {
+  display: block;
+}
+
+/* education cards */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1000px;
+  padding: 24px;
+}
+
+.education-list .page-title {
+  margin-bottom: 8px;
+}
+
+.education-card {
+  padding: 16px 20px;
+  background: #1e1f1c;
+  border: 1px solid #3e3d32;
+  border-left: 3px solid #66d9ef;
+  border-radius: 4px;
+}
+
+.education-title {
+  margin: 0;
+  font-size: 16px;
+  color: #f8f8f2;
+}
+
+.education-institution {
+  margin: 4px 0 12px;
+  font-size: 13px;
+  color: #66d9ef;
+}
+
+.education-points {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #cccccc;
+  list-style-type: "– ";
+}
+
+.education-points li::marker {
+  color: #75715e;
 }

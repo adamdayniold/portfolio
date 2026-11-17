@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FileIcon } from "@/app/components/FileIcon";
 import type { FileItem } from "@/lib/getFiles";
 import { Folder, FolderOpen } from "lucide-react";
+import { onActivate } from "@/lib/onActivate";
 
 interface SidebarProps {
   files: FileItem[];
@@ -41,9 +42,13 @@ export default function Sidebar({
             <div
               className="file folder"
               style={{ paddingLeft }}
+              role="button"
+              tabIndex={0}
+              aria-expanded={!!isExpanded}
               onClick={() => toggleFolder(item.path)}
+              onKeyDown={(e) => onActivate(e, () => toggleFolder(item.path))}
             >
-              <span className={`chevron ${isExpanded ? "open" : ""}`}>
+              <span className={`chevron ${isExpanded ? "open" : ""}`} aria-hidden="true">
                 &gt;
               </span>
 
@@ -68,7 +73,11 @@ export default function Sidebar({
           key={item.path}
           className={`file ${active?.path === item.path ? "active" : ""}`}
           style={{ paddingLeft }}
+          role="button"
+          tabIndex={0}
+          aria-current={active?.path === item.path ? "true" : undefined}
           onClick={() => onSelect(item)}
+          onKeyDown={(e) => onActivate(e, () => onSelect(item))}
         >
           <FileIcon filename={item.name} />
           <span>{item.name}</span>

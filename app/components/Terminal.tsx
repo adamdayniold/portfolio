@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import type { FileItem } from "@/lib/getFiles";
 
 type Line = {
   type: "input" | "output";
@@ -9,7 +10,50 @@ type Line = {
 const PROMPT_USER = "adamdayniold";
 const PROMPT_HOST = "portfolio";
 
-export default function Terminal() {
+function findFile(items: FileItem[], name: string): FileItem | undefined {
+  for (const item of items) {
+    if (item.type === "file" && item.name === name) return item;
+    if (item.children) {
+      const found = findFile(item.children, name);
+      if (found) return found;
+    }
+  }
+  return undefined;
+}
+
+function readText(files: FileItem[], name: string): string | null {
+  return findFile(files, name)?.content?.trim() ?? null;
+}
+
+function readJson<T>(files: FileItem[], name: string): T | null {
+  const text = readText(files, name);
+  if (!text) return null;
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    return null;
+  }
+}
+
+type Experience = {
+  role: string;
+  company: string;
+  period: string;
+};
+
+type Project = {
+  name: string;
+  description: string;
+  tech: string[];
+  repo: string;
+};
+
+type Education = {
+  qualification: string;
+  institution: string;
+};
+
+export default function Terminal({ files }: { files: FileItem[] }) {
   const [lines, setLines] = useState<Line[]>([
     { type: "output", text: "Welcome to my portfolio terminal." },
     { type: "output", text: "Type 'help' to get started." },
@@ -29,25 +73,26 @@ export default function Terminal() {
     });
   };
 
+function handleKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
+  if (isTypingOutput) return;
+  if (e.ctrlKey || e.metaKey || e.altKey) return; // leave Ctrl+P etc. alone
 
-  // Keyboard handling
+  if (e.key === "Backspace") {
+    e.preventDefault();
+    setCurrentInput((prev) => prev.slice(0, -1));
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    runCommand(currentInput);
+    setCurrentInput("");
+  } else if (e.key.length === 1) {
+    e.preventDefault(); // stops Space from scrolling the page
+    setCurrentInput((prev) => prev + e.key);
+  }
+}
+
   useEffect(() => {
-    function handleKeyDown(e: KeyboardEvent) {
-      if (isTypingOutput) return;
-
-      if (e.key === "Backspace") {
-        setCurrentInput((prev) => prev.slice(0, -1));
-      } else if (e.key === "Enter") {
-        runCommand(currentInput);
-        setCurrentInput("");
-      } else if (e.key.length === 1) {
-        setCurrentInput((prev) => prev + e.key);
-      }
-    }
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentInput, isTypingOutput]);
+    containerRef.current?.focus();
+  }, []);
 
   // Auto scroll
   useEffect(() => {
@@ -95,23 +140,47 @@ export default function Terminal() {
     switch (cmd) {
       case "help":
         output =
-          "help:     Show commands\nabout:    About me\nskills:   Tech stack\nprojects: View projects\ncontact:  Contact info\nclear:    Clear terminal";
+          "help:       Show commands\nabout:      About me\nskills:     Tech stack\nexperience: Work history\neducation:  Education\nprojects:   View projects\ncontact:    Contact info\nclear:      Clear terminal";
         break;
       case "about":
         output =
-          "Software engineer focused on immersive UI and scalable systems.";
+          readText(files, "about_me.md")?.replace(/^#.*\n+/, "") ??
+          "about_me.md not found.";
         break;
-      case "skills":
-        output =
-          "TypeScript  React  Next.js  Node.js  PostgreSQL  UI/UX";
+      case "skills": {
+        const skills = readJson<Record<string, string[]>>(files, "skills.json");
+        output = skills
+          ? Object.entries(skills)
+              .map(([group, items]) => `${group}: ${items.join(", ")}`)
+              .join("\n")
+          : "skills.json not found.";
         break;
-      case "projects":
-        output =
-          "• VS Code Portfolio\n• AI Automation Tools\n• Fullstack SaaS Platform";
+      }
+      case "experience": {
+        const jobs = readJson<Experience[]>(files, "experience.json");
+        output = jobs
+          ? jobs.map((j) => `${j.role} @ ${j.company} (${j.period})`).join("\n")
+          : "experience.json not found.";
         break;
+      }
+      case "projects": {
+        const projects = readJson<Project[]>(files, "projects.json");
+        output = projects
+          ? projects
+              .map((p) => `${p.name}\n  ${p.description}\n  ${p.tech.join(", ")}\n  ${p.repo}`)
+              .join("\n\n")
+          : "projects.json not found.";
+        break;
+      }
+      case "education": {
+        const items = readJson<Education[]>(files, "education.json");
+        output = items
+          ? items.map((e) => `${e.qualification}\n  ${e.institution}`).join("\n\n")
+          : "education.json not found.";
+        break;
+      }
       case "contact":
-        output =
-          "Email: you@email.com\nGitHub: github.com/yourname";
+        output = readText(files, "contact.md") ?? "contact.md not found.";
         break;
       case "clear":
         setLines([]);
@@ -119,14 +188,14 @@ export default function Terminal() {
       case "":
         return;
       default:
-        output = `Command not found: ${cmd}`;
+        output = `Command not found: ${cmd}. Type 'help' for commands.`;
     }
 
     typeOutput(output);
   }
 
   return (
-    <div ref={containerRef} className="terminal">
+    <div ref={containerRef} className="terminal" tabIndex={0} onKeyDown={handleKeyDown}>
       {lines.map((line, index) => (
         <div key={index}>
           {line.type === "input" ? (
