@@ -12,9 +12,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://adamdayniold.github.io/portfolio";
+const title = "Adam Dayniold | Portfolio";
+const description = "Software engineer experienced in enterprise systems, Perl, Angular, Python automation and testing. Explore my work in an interactive VS Code-style portfolio.";
+
 export const metadata: Metadata = {
-  title: "Adam Dayniold | Portfolio",
-  description: "Adam Dayniold's developer portfolio.",
+  metadataBase: new URL(`${siteUrl}/`),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: "Adam Dayniold",
+    type: "website",
+    images: [{ url: `${siteUrl}/og.png`, width: 1919, height: 977 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [`${siteUrl}/og.png`],
+  },
 };
 
 export default function RootLayout({
