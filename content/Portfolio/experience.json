@@ -3,70 +3,44 @@
     "role": "Technical Lead",
     "company": "HCL Technologies Limited",
     "period": "December 2024 - Present",
+    "summary": "Client: telecommunications provider in Japan. Moved to HCLTech with HPE's Communications Technology Group on its acquisition; same client and team.",
     "responsibilities": [
-      "Upgraded internal systems for a distinguished telecommunications company in Japan.",
-      "Developed and maintained Perl code supporting internal systems and ongoing enhancements.",
-      "Developed and maintained Angular user-interface features using JavaScript.",
-      "Evaluated and troubleshot software errors to resolve issues and improve system functionality.",
-      "Created Python scripts to automate server operations, improving efficiency and reducing manual work.",
-      "Produced test plans, test results, summaries, and defect reports in the required format.",
-      "Performed manual and unit testing to identify software defects.",
-      "Participated in daily Scrum meetings to share progress and discuss ongoing work."
+      "Built a Python batch job that cross-references MySQL billing data with LDAP subscriber records to export unpaid accounts eligible for cancellation, with duplicate-run protection and unit tests.",
+      "Maintained and extended the billing reconciliation system through multiple production bug-fix releases.",
+      "Built, from a requirements document, a Perl toolkit for bulk LDAP updates: LDIF generation, bcrypt password hashing and rollback templates (rollback tested on a test server). Used in production.",
+      "Adapted a Perl SMTP abuse-detection engine for a second telecom client.",
+      "Enhanced a Python spam-digest email service with configurable templates and encoding fixes."
     ],
-    "techStack": [
-      "Perl",
-      "Python",
-      "Angular",
-      "JavaScript",
-      "Server Operations",
-      "Manual Testing",
-      "Unit Testing",
-      "Agile Scrum"
-    ]
+    "techStack": ["Python", "Perl", "MySQL / MariaDB", "LDAP", "Linux", "unittest", "TAP"]
   },
   {
     "role": "Technical Consultant",
     "company": "Hewlett Packard Enterprise",
     "period": "September 2023 - December 2024",
+    "summary": "Communications Technology Group. Client: telecommunications provider in Japan.",
     "responsibilities": [
-      "Enhanced internal systems for a leading Japanese telecommunications company.",
-      "Developed and maintained Perl code for the internal system.",
-      "Built user-interface components and features according to client design documentation.",
-      "Worked with Angular and JavaScript for user-interface development.",
-      "Developed Python scripts to automate server functions, improving efficiency and reducing manual workload.",
-      "Prepared test plans, test outcomes, summaries, and defect reports.",
-      "Conducted manual and unit testing to identify software issues.",
-      "Attended daily Scrum meetings to communicate task status and ongoing progress."
+      "Built, from requirement documents, the front end of a new self-service webmail settings portal (Thymeleaf, HTML, CSS, JavaScript): account overview, password change, retention periods, virus and junk mail controls, and bulk mail deletion.",
+      "Connected each page to the backend APIs, implemented client-side form validation, and displayed the backend's rejection messages.",
+      "Fixed layout and error-handling bugs in an Angular 8 operations portal (PrimeNG, Bootstrap, SCSS).",
+      "Began implementing, from requirement documents, clustered mail storage support in a Perl mail account migration tool across data centers, adapting to changing requirements. Carried through to production after the move to HCLTech."
     ],
-    "techStack": [
-      "Perl",
-      "Python",
-      "Angular",
-      "JavaScript",
-      "UI Development",
-      "Server Automation",
-      "Manual Testing",
-      "Unit Testing",
-      "Agile Scrum"
-    ]
+    "techStack": ["Thymeleaf", "HTML / CSS / SCSS", "JavaScript", "Angular", "Perl", "REST APIs"]
   },
   {
-    "role": "System Engineer",
+    "role": "Systems Engineer",
     "company": "Tata Consultancy Services",
     "period": "December 2021 - September 2023",
     "location": "Kuala Lumpur",
     "responsibilities": [
-      "Contributed to an enterprise portal for a major Malaysian telecommunications provider.",
-      "Implemented features and user-interface components from client user stories and requirements.",
-      "Maintained reusable code for future enhancements and incorporated security-team recommendations."
+      "Customised an existing enterprise portal product for a major Malaysian telecommunications provider to meet the client's requirements, working from user stories.",
+      "Built the new pages the client requested in Angular: admin, listing and custom package pages, plus a login integration page.",
+      "Set up Azure AD login for the application, serving two user roles (account managers and dealers).",
+      "Added, updated and removed code in an Express (Node.js) layer that sits between external APIs and the product and reshapes the data to fit the product.",
+      "Set up the application in the environment used by the performance testing team.",
+      "Fixed vulnerabilities reported by the security team's testing, and wrote reusable code to ease future maintenance.",
+      "Supported the client through UAT and PVT on site, and supported the production deployment, including out-of-hours."
     ],
-    "techStack": [
-      "Angular",
-      "Node.js",
-      "MySQL",
-      "Azure Active Directory",
-      "GitHub"
-    ]
+    "techStack": ["Angular", "Node.js / Express", "Azure AD", "MySQL", "GitHub"]
   },
   {
     "role": "Software Engineer",
@@ -74,17 +48,11 @@
     "period": "February 2020 - December 2021",
     "location": "Kuala Lumpur",
     "responsibilities": [
-      "Resolved bugs and errors to help maintain system continuity.",
-      "Developed new modules and complex Learning and E-Travel components requested by multiple clients.",
-      "Compiled, merged, and deployed code from staging to production using Git."
+      "Built the front end of two new modules from scratch for an HR software product, using Vue.js: Learning (course-based learning) and E-Travel (submission of travel documentation), in response to requests from multiple clients.",
+      "Fixed front-end bugs from a Jira backlog to keep the live system running.",
+      "Merged code and deployed releases and hotfixes from staging to live using Git."
     ],
-    "techStack": [
-      "Nuxt.js",
-      "Vue.js",
-      "JavaScript",
-      "Bitbucket",
-      "Git"
-    ]
+    "techStack": ["Vue.js", "Nuxt.js", "JavaScript", "Jira", "Bitbucket", "Git"]
   },
   {
     "role": "Full Stack Web Developer Intern",
@@ -92,16 +60,10 @@
     "period": "August 2019 - December 2019",
     "location": "Kuala Lumpur",
     "responsibilities": [
-      "Maintained the existing web application.",
-      "Developed new components for a redesigned interface.",
-      "Modernized legacy code to make it easier to maintain."
+      "Maintained an existing web application and built new React components for a redesigned interface.",
+      "Converted legacy jQuery code to React, producing cleaner, more maintainable code."
     ],
-    "techStack": [
-      "React.js",
-      "React Native",
-      "JavaScript",
-      "GitHub"
-    ]
+    "techStack": ["React", "jQuery", "React Native", "JavaScript", "GitHub"]
   },
   {
     "role": "Front End Software Developer Intern",
@@ -109,13 +71,9 @@
     "period": "November 2016 - April 2017",
     "location": "Kuala Lumpur",
     "responsibilities": [
-      "Maintained existing web applications and developed reusable components."
+      "Maintained the front end of an online travel platform that connects travellers with local travel experts to build customised itineraries, and built new reusable React components.",
+      "Used Linux and Docker for local development."
     ],
-    "techStack": [
-      "React.js",
-      "JavaScript",
-      "GitLab",
-      "Linux"
-    ]
+    "techStack": ["React", "JavaScript", "Docker", "Linux", "GitLab"]
   }
 ]

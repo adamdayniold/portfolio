@@ -1,0 +1,24 @@
+[
+  {
+    "name": "application-container-box",
+    "description": "Next.js + MongoDB app with a build-once, promote-everywhere CI/CD pipeline on GitHub Actions.",
+    "highlights": [
+      "Multi-stage Docker build, non-root, about 75 MB",
+      "Immutable sha-<commit> tags, promoted to production without a rebuild",
+      "Health probes, Prometheus metrics, structured JSON logs"
+    ],
+    "tech": ["Next.js", "MongoDB", "Docker", "GitHub Actions", "Jest"],
+    "repo": "github.com/adamdayniold/application-container-box"
+  },
+  {
+    "name": "mywebapp-k8s-helm",
+    "description": "GitOps Kubernetes platform on k3d, reconciled by Flux.",
+    "highlights": [
+      "Gateway API ingress with cert-manager TLS",
+      "Sealed Secrets, HPA and VPA, Mongo on a StatefulSet",
+      "Prometheus, Grafana, Loki and Alloy observability"
+    ],
+    "tech": ["Kubernetes", "Helm", "Flux", "k3d", "Grafana"],
+    "repo": "github.com/adamdayniold/mywebapp-k8s-helm"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "qualification": "Bachelor of Software Engineering (Information System Development)",
+    "institution": "Universiti Kebangsaan Malaysia (UKM)",
+    "highlights": [
+      "Studied the full software development life cycle (SDLC), from gathering requirements with clients through to deployment and post-release support.",
+      "Final-year project: web-based driving school class booking system with admin, worker and student roles, built with Python and Django.",
+      "Relevant coursework: web development, Android development, data warehousing, requirements engineering, software versioning and maintenance."
+    ]
+  },
+  {
+    "qualification": "Diploma in Information Technology (Programming)",
+    "institution": "Politeknik Ungku Omar",
+    "highlights": [
+      "Head of Department Award, five consecutive semesters",
+      "Final-year project: Android application built with Android Studio, listing tourist attractions in Ipoh, with navigation to each location through Google Maps.",
+      "Relevant coursework: object-oriented programming (Java), data structures and algorithms, database fundamentals, cybersecurity fundamentals."
+    ]
+  }
+]

@@ -1,21 +1,13 @@
 {
-  "development": [
-    "Perl",
-    "Angular",
-    "JavaScript",
-    "User Interface Development",
-    "System Enhancement",
-    "Python Scripting"
-  ],
-  "qualityAssurance": [
-    "Manual Testing",
-    "Unit Testing",
-    "Test Planning",
-    "Defect Reporting"
-  ],
-  "delivery": [
-    "Server Operations",
-    "Technical Documentation",
-    "Agile Scrum"
-  ]
+  "Languages": ["Python", "Perl", "JavaScript"],
+  "Databases": ["MariaDB / MySQL"],
+  "Identity & directory": ["LDAP", "Azure AD integration"],
+  "Testing": ["unittest (Python)", "TAP (Perl)"],
+  "Platforms & tools": ["Linux", "Windows", "macOS", "Git", "REST APIs"],
+  "Front end": ["Angular", "HTML", "CSS", "SCSS"],
+  "Frameworks": ["Vue.js", "React", "Express (Node.js)", "Thymeleaf"],
+  "DevOps (personal projects)": ["Docker", "Kubernetes", "Helm", "Flux", "GitHub Actions", "Terraform", "Ansible"],
+  "Databases (personal projects)": ["MongoDB"],
+  "Mobile (side projects)": ["Ionic", "React Native", "Firebase"],
+  "Spoken languages": ["Bahasa Malaysia (native)", "English (working proficiency)"]
 }
