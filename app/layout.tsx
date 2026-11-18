@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Adam Dayniold",
     type: "website",
-    images: [{ url: `${siteUrl}/og.png`, width: 1919, height: 977 }],
+    images: [{ url: `${siteUrl}/og.png`, width: 1919, height: 995 }],
   },
   twitter: {
     card: "summary_large_image",
