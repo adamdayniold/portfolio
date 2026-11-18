@@ -13,7 +13,7 @@
     "institution": "Politeknik Ungku Omar",
     "highlights": [
       "Head of Department Award, five consecutive semesters",
-      "Final-year project: Android application built with Android Studio, listing tourist attractions in Ipoh, with navigation to each location through Google Maps.",
+      "Final-year project: Android application built with Android Studio that lists tourist attractions in Ipoh and opens Google Maps with directions to the selected place.",
       "Relevant coursework: object-oriented programming (Java), data structures and algorithms, database fundamentals, cybersecurity fundamentals."
     ]
   }

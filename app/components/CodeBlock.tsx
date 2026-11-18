@@ -1,9 +1,17 @@
 "use client";
 
-import { useCallback } from "react";
-import Editor, { OnMount } from "@monaco-editor/react";
+import { useCallback, useState } from "react";
+import Editor, { OnMount, BeforeMount, loader } from "@monaco-editor/react";
 import type { editor } from "monaco-editor";
 import monokai from "@/lib/themes/Monokai.json";
+
+if (typeof window !== "undefined") {
+  loader.init();
+}
+
+const handleBeforeMount: BeforeMount = (monaco) => {
+  monaco.editor.defineTheme("monokai-dark", monokai);
+};
 
 interface Props {
   code: string;
@@ -18,18 +26,17 @@ export default function CodeBlock({
   isBooting = false,
   onCursorChange
 }: Props) {
+  const [ready, setReady] = useState(false);
+
   const handleMount: OnMount = useCallback(
-    (editorInstance: editor.IStandaloneCodeEditor, monaco) => {
-      // Define Monokai theme
-      monaco.editor.defineTheme("monokai-dark", monokai);
-
-      // Apply theme
-      monaco.editor.setTheme("monokai-dark");
-
-      // Cursor tracking
+    (editorInstance: editor.IStandaloneCodeEditor) => {
       editorInstance.onDidChangeCursorPosition((e) => {
         onCursorChange?.(e.position.lineNumber, e.position.column);
       });
+      setTimeout(() => {
+        editorInstance.setScrollTop(0, 1);
+        setReady(true);
+      }, 100);
     },
     [onCursorChange]
   );
@@ -45,6 +52,8 @@ export default function CodeBlock({
       }}
     >
       <Editor
+        beforeMount={handleBeforeMount}
+        loading={<div style={{ background: "#272822", width: "100%", height: "100%" }} />}
         height="100%"
         width="100%"
         language={lang}

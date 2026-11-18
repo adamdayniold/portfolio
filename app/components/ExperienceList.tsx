@@ -17,14 +17,14 @@ interface Props {
 }
 
 export default function ExperienceList({ data }: Props) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [closed, setClosed] = useState<number[]>([]);
 
   return (
     <div className="experience-container">
       <h1 className="page-title">Experience</h1>
 
       {data.map((exp, index) => {
-        const isOpen = openIndex === index;
+        const isOpen = !closed.includes(index);
         const isCurrent = exp.period.includes("Present");
 
         return (
@@ -36,7 +36,11 @@ export default function ExperienceList({ data }: Props) {
               type="button"
               className="experience-header"
               aria-expanded={isOpen}
-              onClick={() => setOpenIndex(isOpen ? null : index)}
+              onClick={() =>
+                setClosed((prev) =>
+                  prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+                )
+              }
             >
               <span className="meta">
                 {exp.period}

@@ -217,6 +217,15 @@ body {
   overflow: auto; /* Handles the main scrolling */
 }
 
+/* Monaco's hidden IME textarea shows as a white box until Monaco's CSS loads */
+.editor .ime-text-area {
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  color: transparent !important;
+  opacity: 0 !important;
+}
+
 .terminal {
   height: 200px;
   border-top: 1px solid #3e3d32;
@@ -1139,3 +1148,5 @@ body {
 .education-points li::marker {
   color: #75715e;
 }
+
+.monaco-editor .inputarea { background: transparent !important; }

@@ -21,7 +21,12 @@ export default function Sidebar({
   isOpen,
   isBooting,
 }: SidebarProps) {
-  const [openFolders, setOpenFolders] = useState<Record<string, boolean>>({});
+  const [openFolders, setOpenFolders] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(
+      files.filter((f) => f.type === "folder").map((f) => [f.path, true])
+    )
+  );
+
 
   function toggleFolder(path: string) {
     setOpenFolders((prev) => ({

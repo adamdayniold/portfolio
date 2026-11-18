@@ -4,3 +4,4 @@ tsconfig.tsbuildinfo
 CLAUDE.md
 out/
 .env*
+next-env.d.ts

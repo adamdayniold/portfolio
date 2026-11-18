@@ -61,7 +61,7 @@
     "location": "Kuala Lumpur",
     "responsibilities": [
       "Maintained an existing web application and built new React components for a redesigned interface.",
-      "Converted legacy jQuery code to React, producing cleaner, more maintainable code."
+      "Converted legacy jQuery code to React as part of the interface redesign."
     ],
     "techStack": ["React", "jQuery", "React Native", "JavaScript", "GitHub"]
   },
