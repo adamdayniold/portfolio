@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     title,
     description,
     url: siteUrl,
-    siteName: "Adam Dayniold",
     type: "website",
     images: [{ url: `${siteUrl}/og-v2.png`, width: 1919, height: 995 }],
   },
