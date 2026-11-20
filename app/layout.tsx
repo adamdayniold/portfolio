@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Adam Dayniold",
     type: "website",
-    images: [{ url: `${siteUrl}/og.png`, width: 1919, height: 995 }],
+    images: [{ url: `${siteUrl}/og-v2.png`, width: 1919, height: 995 }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: [`${siteUrl}/og.png`],
+    images: [`${siteUrl}/og-v2.png`],
   },
 };
 
