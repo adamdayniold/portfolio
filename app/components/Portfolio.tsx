@@ -91,7 +91,7 @@ export default function Portfolio({ files }: { files: FileItem[] }) {
 
   useEffect(() => {
     function handleShortcut(e: KeyboardEvent) {
-      if ((e.metaKey || e.ctrlKey)) return; 
+      if (!(e.metaKey || e.ctrlKey)) return; 
       const key = e.key.toLowerCase();
 
       if (key === "p") {
