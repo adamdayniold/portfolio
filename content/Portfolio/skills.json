@@ -1,13 +1,14 @@
 {
   "Languages": ["Python", "Perl", "JavaScript"],
   "Databases": ["MariaDB / MySQL"],
-  "Identity & directory": ["LDAP", "Azure AD integration"],
+  "Identity & directory": ["LDAP"],
+  "Identity (earlier experience)": ["Azure AD login integration (at TCS)"],
   "Testing": ["unittest (Python)", "TAP (Perl)"],
   "Platforms & tools": ["Linux", "Windows", "macOS", "Git", "REST APIs"],
   "Front end": ["Angular", "HTML", "CSS", "SCSS"],
-  "Frameworks": ["Vue.js", "React", "Express (Node.js)", "Thymeleaf"],
+  "Frameworks": ["Vue.js (Nuxt)", "React", "Express (Node.js)", "Thymeleaf", "Next.js (personal projects)"],
   "DevOps (personal projects)": ["Docker", "Kubernetes", "Helm", "Flux", "GitHub Actions", "Terraform", "Ansible"],
   "Databases (personal projects)": ["MongoDB"],
   "Mobile (side projects)": ["Ionic", "React Native", "Firebase"],
-  "Spoken languages": ["Bahasa Malaysia (native)", "English (working proficiency)"]
+  "Spoken languages": ["Bahasa Malaysia (native)", "English (good working proficiency, MUET Band 4)"]
 }

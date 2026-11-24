@@ -5,11 +5,11 @@
     "period": "December 2024 - Present",
     "summary": "Client: telecommunications provider in Japan. Moved to HCLTech with HPE's Communications Technology Group on its acquisition; same client and team.",
     "responsibilities": [
-      "Built a Python batch job that cross-references MySQL billing data with LDAP subscriber records to export unpaid accounts eligible for cancellation, with duplicate-run protection and unit tests.",
-      "Maintained and extended the billing reconciliation system through multiple production bug-fix releases.",
-      "Built, from a requirements document, a Perl toolkit for bulk LDAP updates: LDIF generation, bcrypt password hashing and rollback templates (rollback tested on a test server). Used in production.",
-      "Adapted a Perl SMTP abuse-detection engine for a second telecom client.",
-      "Enhanced a Python spam-digest email service with configurable templates and encoding fixes."
+      "Built a monthly Python batch job that cross-references MySQL billing data with LDAP subscriber records to export a CSV of unpaid manual-billing customers whose numbers were ported out, for forced cancellation, with duplicate-run protection and unit tests, within an existing billing reconciliation system.",
+      "Maintained and extended that system through multiple production bug-fix releases.",
+      "Built, from a requirements document, a Perl toolkit for bulk LDAP password maintenance, such as mass resets and migrating stored passwords to bcrypt: LDIF generation and rollback templates (rollback tested on a test server). Used in production.",
+      "Worked on a Perl batch job that detects mail accounts abused for spam or mass mailing through SMTP-Auth and restricts their SMTP access.",
+      "Extended a Python spam-report email service from a single discard-only report into a configurable dual-format reporter (legacy discard-only, or a combined report with separate quarantined and discarded sections, each with its own threshold and overflow message), with new templates, INI configuration and a large unit-test suite."
     ],
     "techStack": ["Python", "Perl", "MySQL / MariaDB", "LDAP", "Linux", "unittest", "TAP"]
   },
@@ -22,7 +22,7 @@
       "Built, from requirement documents, the front end of a new self-service webmail settings portal (Thymeleaf, HTML, CSS, JavaScript): account overview, password change, retention periods, virus and junk mail controls, and bulk mail deletion.",
       "Connected each page to the backend APIs, implemented client-side form validation, and displayed the backend's rejection messages.",
       "Fixed layout and error-handling bugs in an Angular 8 operations portal (PrimeNG, Bootstrap, SCSS).",
-      "Began implementing, from requirement documents, clustered mail storage support in a Perl mail account migration tool across data centers, adapting to changing requirements. Carried through to production after the move to HCLTech."
+      "Implemented the user-move and recovery logic in a Perl mail account migration tool, adapting to changing client requirements. Carried through to production after the move to HCLTech."
     ],
     "techStack": ["Thymeleaf", "HTML / CSS / SCSS", "JavaScript", "Angular", "Perl", "REST APIs"]
   },
@@ -48,7 +48,7 @@
     "period": "February 2020 - December 2021",
     "location": "Kuala Lumpur",
     "responsibilities": [
-      "Built the front end of two new modules from scratch for an HR software product, using Vue.js: Learning (course-based learning) and E-Travel (submission of travel documentation), in response to requests from multiple clients.",
+      "Built the front end of two new modules from scratch for an HR software product, using Vue.js (Nuxt): Learning (course-based learning) and E-Travel (submission of travel documentation), in response to requests from multiple clients.",
       "Fixed front-end bugs from a Jira backlog to keep the live system running.",
       "Merged code and deployed releases and hotfixes from staging to live using Git."
     ],
