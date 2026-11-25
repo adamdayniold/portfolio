@@ -3,7 +3,7 @@
   "Databases": ["MariaDB / MySQL"],
   "Identity & directory": ["LDAP"],
   "Identity (earlier experience)": ["Azure AD login integration (at TCS)"],
-  "Testing": ["unittest (Python)", "TAP (Perl)"],
+  "Testing": ["unittest (Python)", "TAP (Perl)", "Manual testing with test documentation"],
   "Platforms & tools": ["Linux", "Windows", "macOS", "Git", "REST APIs"],
   "Front end": ["Angular", "HTML", "CSS", "SCSS"],
   "Frameworks": ["Vue.js (Nuxt)", "React", "Express (Node.js)", "Thymeleaf", "Next.js (personal projects)"],

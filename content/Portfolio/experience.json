@@ -1,17 +1,20 @@
 [
   {
-    "role": "Technical Lead",
-    "company": "HCL Technologies Limited",
-    "period": "December 2024 - Present",
-    "summary": "Client: telecommunications provider in Japan. Moved to HCLTech with HPE's Communications Technology Group on its acquisition; same client and team.",
-    "responsibilities": [
-      "Built a monthly Python batch job that cross-references MySQL billing data with LDAP subscriber records to export a CSV of unpaid manual-billing customers whose numbers were ported out, for forced cancellation, with duplicate-run protection and unit tests, within an existing billing reconciliation system.",
-      "Maintained and extended that system through multiple production bug-fix releases.",
-      "Built, from a requirements document, a Perl toolkit for bulk LDAP password maintenance, such as mass resets and migrating stored passwords to bcrypt: LDIF generation and rollback templates (rollback tested on a test server). Used in production.",
-      "Worked on a Perl batch job that detects mail accounts abused for spam or mass mailing through SMTP-Auth and restricts their SMTP access.",
-      "Extended a Python spam-report email service from a single discard-only report into a configurable dual-format reporter (legacy discard-only, or a combined report with separate quarantined and discarded sections, each with its own threshold and overflow message), with new templates, INI configuration and a large unit-test suite."
-    ],
-    "techStack": ["Python", "Perl", "MySQL / MariaDB", "LDAP", "Linux", "unittest", "TAP"]
+  "role": "Technical Lead",
+  "company": "HCL Technologies Limited",
+  "period": "December 2024 - Present",
+  "summary": "Client: telecommunications provider in Japan. Moved to HCLTech with HPE's Communications Technology Group on its acquisition; same client and team.",
+  "responsibilities": [
+    "Built a monthly Python batch job that cross-references MySQL billing data with LDAP subscriber records to export a CSV of unpaid manual-billing customers whose numbers were ported out, for forced cancellation, with a lock file against overlapping runs, a check against regenerating the same day's list, and unit tests.",
+    "Maintained and extended the existing billing reconciliation system through multiple production bug-fix releases.",
+    "Built, from a requirements document, a Perl toolkit for bulk LDAP password maintenance, such as mass resets and migrating stored passwords to bcrypt: LDIF generation and rollback templates to undo the changes if a deployment is reverted (rollback tested on a test server). Used in production.",
+    "Worked on a Perl batch job that detects mail accounts abused for spam or mass mailing through SMTP-Auth and restricts their SMTP access.",
+    "Extended a Python spam-report email service from a single discard-only report into a configurable dual-format reporter (legacy discard-only, or a combined report with separate quarantined and discarded sections, each with its own threshold and overflow message), with new templates, INI configuration and a large unit-test suite.",
+    "Primary engineer for the team's Perl projects; guide teammates by explaining each project and its tasks, and write documentation notes so they can carry on in my absence.",
+    "Take each project from a client requirements document to working code independently, clarifying open questions with the project manager.",
+    "Manually test each project's flows against expected outcomes and document the findings in test reports using the team's template (HPE and HCLTech projects)."
+  ],
+  "techStack": ["Python", "Perl", "MySQL / MariaDB", "LDAP", "Linux", "unittest", "TAP"]
   },
   {
     "role": "Technical Consultant",
